@@ -11,6 +11,9 @@ if (menuBurger) {
     menuBurger.addEventListener('click', function() {
         navMenu.classList.toggle('active');
         menuBurger.classList.toggle('active');
+        const isOpen = navMenu.classList.contains('active');
+        menuBurger.setAttribute('aria-expanded', isOpen);
+        menuBurger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
     });
 }
 
