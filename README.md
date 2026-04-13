@@ -18,6 +18,7 @@ rizia-neves/
 ├── index.html          # Page principale
 ├── style.css           # Styles (variables CSS, responsive)
 ├── script.js           # Menu burger, modal RGPD, bandeau cookies
+├── favicon.svg         # Favicon initiales RN (marron #a0522d)
 ├── sitemap.xml         # Pour Google Search Console
 ├── robots.txt          # Instructions aux robots d'indexation
 └── images/

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Fond cercle -->
+  <circle cx="32" cy="32" r="32" fill="#a0522d"/>
+  <!-- Anneau décoratif -->
+  <circle cx="32" cy="32" r="28" fill="none" stroke="#d4a574" stroke-width="2" opacity="0.6"/>
+  <!-- Initiales RN -->
+  <text
+    x="32"
+    y="42"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="26"
+    font-weight="700"
+    fill="#ffffff"
+    text-anchor="middle"
+    letter-spacing="1"
+  >RN</text>
+</svg>
