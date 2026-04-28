@@ -106,6 +106,15 @@
     <link rel="preload" as="image" href="/images/rizia.webp">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Analytics – remplacer G-XXXXXXXXXX par votre ID de mesure réel -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
     <!-- HEADER / NAVIGATION -->
@@ -177,19 +186,50 @@
                 <h2>Galerie de Travaux</h2>
                 <div class="gallery-grid">
                     <div class="gallery-card">
-                        <div class="card-image" style="background-image: url('/images/Tresse\ classique.webp'); background-size: cover;"></div>
+                        <div class="card-image">
+                            <img src="/images/Tresse%20classique.webp" alt="Tresse classique réalisée par Rizia Neves à Valence – style traditionnel" loading="lazy" width="400" height="250">
+                        </div>
                         <h3>Tresse Classique</h3>
                         <p>Style traditionnel, parfait pour les occasions spéciales</p>
                     </div>
                     <div class="gallery-card">
-                        <div class="card-image" style="background-image: url('images/Cotidiane.webp'); background-size: cover;"></div>
+                        <div class="card-image">
+                            <img src="/images/Cotidiane.webp" alt="Box braids quotidiennes réalisées par Rizia Neves – style moderne et polyvalent" loading="lazy" width="400" height="250">
+                        </div>
                         <h3>Box Braids</h3>
                         <p>Style moderne et polyvalent pour la vie quotidienne</p>
                     </div>
                     <div class="gallery-card">
-                        <div class="card-image" style="background-image: url('/images/tresse\ decore.webp'); background-size: cover;"></div>
+                        <div class="card-image">
+                            <img src="/images/tresse%20decore.webp" alt="Tresses décorées avec accessoires réalisées par Rizia Neves – style personnalisé" loading="lazy" width="400" height="250">
+                        </div>
                         <h3>Tresse Décorée</h3>
                         <p>Avec des accessoires et style personnalisé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AVANT / APRÈS SECTION -->
+        <section id="avantapres" class="beforeafter">
+            <div class="container">
+                <h2>Avant / Après</h2>
+                <p class="slider-intro">Glissez le curseur pour découvrir la transformation</p>
+                <div class="slider-container" id="beforeAfterSlider">
+                    <img src="/images/Tranca.webp" alt="Avant – tresses naturelles avant coiffure par Rizia Neves" class="slider-img-before">
+                    <span class="slider-label-before" aria-hidden="true">Avant</span>
+                    <div class="slider-after-wrapper">
+                        <img src="/images/tresse%20decore.webp" alt="Après – tresses décorées réalisées par Rizia Neves à Valence" class="slider-img-after">
+                        <span class="slider-label-after" aria-hidden="true">Après</span>
+                    </div>
+                    <div class="slider-handle" id="sliderHandle"
+                         role="slider"
+                         aria-label="Curseur avant/après – utilisez les flèches gauche/droite"
+                         aria-valuenow="50"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                         tabindex="0">
+                        <span class="slider-arrows" aria-hidden="true">&#8249;&#8250;</span>
                     </div>
                 </div>
             </div>
@@ -249,6 +289,18 @@
             <p>&copy; 2026 Rizia Neves. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- LIGHTBOX GALERIE -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Galerie photo agrandie" style="display:none;">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Fermer la galerie">&times;</button>
+        <button class="lightbox-prev" id="lightboxPrev" aria-label="Image précédente">&#8249;</button>
+        <div class="lightbox-img-wrapper">
+            <img src="" alt="" id="lightboxImg" class="lightbox-img">
+            <p class="lightbox-caption" id="lightboxCaption"></p>
+        </div>
+        <button class="lightbox-next" id="lightboxNext" aria-label="Image suivante">&#8250;</button>
+    </div>
+    <div class="lightbox-overlay" id="lightboxOverlay" style="display:none;"></div>
 
     <!-- RGPD MODAL -->
     <div id="rgpd" class="rgpd-modal" role="dialog" aria-modal="true" aria-labelledby="rgpd-title" style="display:none;">
