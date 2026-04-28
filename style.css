@@ -415,13 +415,13 @@ p {
 .form-group label {
     font-weight: 600;
     font-size: 0.95rem;
-    color: var(--color-white);
+    color: #ffffff;
 }
 
 .form-optional {
     font-weight: 400;
     font-size: 0.85rem;
-    opacity: 0.75;
+    color: rgba(255,255,255,0.85);
 }
 
 .form-group input,
@@ -429,41 +429,43 @@ p {
 .form-group textarea {
     width: 100%;
     padding: 0.85rem 1rem;
-    border: 2px solid rgba(255,255,255,0.25);
+    border: 2px solid rgba(255,255,255,0.4);
     border-radius: var(--border-radius);
-    background: rgba(255,255,255,0.1);
-    color: var(--color-white);
+    background: rgba(255,255,255,0.96);
+    color: var(--color-dark);
     font-size: 1rem;
     font-family: inherit;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
     outline: none;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: rgba(255,255,255,0.5);
+    color: #767676;
 }
 
 .form-group select option {
-    background: var(--color-dark);
-    color: var(--color-white);
+    background: var(--color-white);
+    color: var(--color-dark);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     border-color: var(--color-white);
-    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.35);
+    background: #ffffff;
 }
 
 .form-group input.invalid,
 .form-group select.invalid {
-    border-color: #ff6b6b;
+    border-color: #cc0000;
+    background: #fff5f5;
 }
 
 .form-error {
     font-size: 0.82rem;
-    color: #ff9999;
+    color: #ffcccc;
     display: none;
 }
 
