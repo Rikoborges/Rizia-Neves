@@ -174,7 +174,64 @@ function initBeforeAfterSlider() {
 
 initBeforeAfterSlider();
 
-// 4. MODAL RGPD
+// 4. FORMULAIRE CONTACT → WHATSAPP
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nameInput    = document.getElementById('formName');
+        const serviceInput = document.getElementById('formService');
+        const messageInput = document.getElementById('formMessage');
+        const nameError    = document.getElementById('nameError');
+        const serviceError = document.getElementById('serviceError');
+
+        let valid = true;
+
+        // Validation
+        if (!nameInput.value.trim()) {
+            nameInput.classList.add('invalid');
+            nameError.classList.add('visible');
+            valid = false;
+        } else {
+            nameInput.classList.remove('invalid');
+            nameError.classList.remove('visible');
+        }
+
+        if (!serviceInput.value) {
+            serviceInput.classList.add('invalid');
+            serviceError.classList.add('visible');
+            valid = false;
+        } else {
+            serviceInput.classList.remove('invalid');
+            serviceError.classList.remove('visible');
+        }
+
+        if (!valid) return;
+
+        const name    = nameInput.value.trim();
+        const service = serviceInput.value;
+        const message = messageInput.value.trim();
+
+        let text = `Bonjour Rizia ! 👋\n\nNom : ${name}\nService : ${service}`;
+        if (message) text += `\n\nMessage : ${message}`;
+        text += '\n\nJe souhaite prendre rendez-vous. 😊';
+
+        window.open(`https://wa.me/33745553461?text=${encodeURIComponent(text)}`, '_blank');
+    });
+
+    // Retirer l'état invalide dès que l'utilisateur corrige
+    document.getElementById('formName').addEventListener('input', function () {
+        this.classList.remove('invalid');
+        document.getElementById('nameError').classList.remove('visible');
+    });
+    document.getElementById('formService').addEventListener('change', function () {
+        this.classList.remove('invalid');
+        document.getElementById('serviceError').classList.remove('visible');
+    });
+}
+
+// 5. MODAL RGPD
 const rgpdModal    = document.getElementById('rgpd');
 const rgpdOverlay  = document.getElementById('rgpdOverlay');
 const rgpdClose    = document.getElementById('rgpdClose');
