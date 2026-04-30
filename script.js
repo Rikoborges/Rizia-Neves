@@ -174,7 +174,26 @@ function initBeforeAfterSlider() {
 
 initBeforeAfterSlider();
 
-// 4. FORMULAIRE CONTACT → WHATSAPP
+// 4. FAQ ACCORDION
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const answer = this.nextElementSibling;
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+        // Fechar todos os outros
+        document.querySelectorAll('.faq-question').forEach(other => {
+            if (other !== this) {
+                other.setAttribute('aria-expanded', 'false');
+                other.nextElementSibling.hidden = true;
+            }
+        });
+
+        this.setAttribute('aria-expanded', String(!isOpen));
+        answer.hidden = isOpen;
+    });
+});
+
+// 5. FORMULAIRE CONTACT → WHATSAPP
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
@@ -209,15 +228,16 @@ if (contactForm) {
 
         if (!valid) return;
 
-        const name    = nameInput.value.trim();
+        const name    = nameInput.value.trim().replace(/\r/g, '');
         const service = serviceInput.value;
-        const message = messageInput.value.trim();
+        const message = messageInput.value.trim().replace(/\r/g, '');
 
         let text = `Bonjour Rizia ! 👋\n\nNom : ${name}\nService : ${service}`;
         if (message) text += `\n\nMessage : ${message}`;
         text += '\n\nJe souhaite prendre rendez-vous. 😊';
 
-        window.open(`https://wa.me/33745553461?text=${encodeURIComponent(text)}`, '_blank');
+        const encoded = encodeURIComponent(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n'));
+        window.open(`https://wa.me/33745553461?text=${encoded}`, '_blank');
     });
 
     // Retirer l'état invalide dès que l'utilisateur corrige
@@ -231,7 +251,7 @@ if (contactForm) {
     });
 }
 
-// 5. MODAL RGPD
+// 6. MODAL RGPD
 const rgpdModal    = document.getElementById('rgpd');
 const rgpdOverlay  = document.getElementById('rgpdOverlay');
 const rgpdClose    = document.getElementById('rgpdClose');
@@ -262,7 +282,7 @@ document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && rgpdModal.style.display === 'block') closeRgpd();
 });
 
-// 5. BANDEAU COOKIES
+// 7. BANDEAU COOKIES
 const cookieBanner = document.getElementById('cookieBanner');
 const cookieAccept = document.getElementById('cookieAccept');
 
