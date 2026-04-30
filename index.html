@@ -125,6 +125,26 @@
       "sameAs": [
         "https://www.instagram.com/rizianeves92/"
       ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Valence",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Drôme"
+          }
+        }
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 44.9334,
+          "longitude": 4.8924
+        },
+        "geoRadius": "30000"
+      },
+      "knowsLanguage": ["fr", "pt"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Services de coiffure",
@@ -163,6 +183,9 @@
       }
     }
     </script>
+
+    <!-- ===== IA / LLMs ===== -->
+    <link rel="llms" type="text/plain" href="/llms.txt">
 
     <!-- ===== FAVICON ===== -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
