@@ -174,7 +174,26 @@ function initBeforeAfterSlider() {
 
 initBeforeAfterSlider();
 
-// 4. FORMULAIRE CONTACT → WHATSAPP
+// 4. FAQ ACCORDION
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const answer = this.nextElementSibling;
+        const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+        // Fechar todos os outros
+        document.querySelectorAll('.faq-question').forEach(other => {
+            if (other !== this) {
+                other.setAttribute('aria-expanded', 'false');
+                other.nextElementSibling.hidden = true;
+            }
+        });
+
+        this.setAttribute('aria-expanded', String(!isOpen));
+        answer.hidden = isOpen;
+    });
+});
+
+// 5. FORMULAIRE CONTACT → WHATSAPP
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
@@ -232,7 +251,7 @@ if (contactForm) {
     });
 }
 
-// 5. MODAL RGPD
+// 6. MODAL RGPD
 const rgpdModal    = document.getElementById('rgpd');
 const rgpdOverlay  = document.getElementById('rgpdOverlay');
 const rgpdClose    = document.getElementById('rgpdClose');
@@ -263,7 +282,7 @@ document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && rgpdModal.style.display === 'block') closeRgpd();
 });
 
-// 5. BANDEAU COOKIES
+// 7. BANDEAU COOKIES
 const cookieBanner = document.getElementById('cookieBanner');
 const cookieAccept = document.getElementById('cookieAccept');
 
