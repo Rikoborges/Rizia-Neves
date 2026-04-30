@@ -209,15 +209,16 @@ if (contactForm) {
 
         if (!valid) return;
 
-        const name    = nameInput.value.trim();
+        const name    = nameInput.value.trim().replace(/\r/g, '');
         const service = serviceInput.value;
-        const message = messageInput.value.trim();
+        const message = messageInput.value.trim().replace(/\r/g, '');
 
         let text = `Bonjour Rizia ! 👋\n\nNom : ${name}\nService : ${service}`;
         if (message) text += `\n\nMessage : ${message}`;
         text += '\n\nJe souhaite prendre rendez-vous. 😊';
 
-        window.open(`https://wa.me/33745553461?text=${encodeURIComponent(text)}`, '_blank');
+        const encoded = encodeURIComponent(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n'));
+        window.open(`https://wa.me/33745553461?text=${encoded}`, '_blank');
     });
 
     // Retirer l'état invalide dès que l'utilisateur corrige
