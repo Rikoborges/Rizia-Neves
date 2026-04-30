@@ -517,7 +517,7 @@ p {
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 18px rgba(37,211,102,0.45);
-    z-index: 997;
+    z-index: 999;
     transition: transform 0.2s, box-shadow 0.2s;
     color: var(--color-white);
 }
